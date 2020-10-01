@@ -23,7 +23,7 @@
 
 
 
-* *::before, ::after {
+*, *::before, ::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -77,7 +77,9 @@ h3 {
 h4 {
     font-weight: 400;
     font-size: 20px;
-    line-height: 115%;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    font-family: "Georgia", sans-serif;
 }
 
 h5 {
@@ -105,6 +107,7 @@ a.button {
     padding-top: 60px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo__title {
@@ -163,6 +166,10 @@ a.button {
     margin-top: 187px;
 }
 
+.promo .content__wrapper {
+    margin-top: 35px;
+}
+
 .promo .content__item {
     font-family: Arial;
     font-style: normal;
@@ -189,7 +196,7 @@ a.button {
 
 .about .inner__wrapper {
     padding-top: 80px;
-    padding-bottom: 100px;
+    padding-bottom: 97px;
     width: 850px;
     display: flex;
     justify-content: space-between;
@@ -217,9 +224,154 @@ a.button {
 
 
 /* Pets */
+.pets {
+    height: 877px;
+    background-color: var(--color-light-l);
+}
+
+
+
+.slider__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slide__items {
+    display: flex;
+    width: 990px;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.pets h3 {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 80px;  
+}
+
+
+.pets .slide__item {
+    padding: 30px 35px;
+    background-color:var(--color-light-xl);
+}
+
+.pets .slide__title {
+    text-align: center;
+    margin-top: 25px;
+    letter-spacing: 0.06em;
+    margin-bottom: -25px;
+}
+
+.pets .slider__container a.button {
+    background: none;
+    border: 2px solid var(--color-primary);
+    letter-spacing: 0.06em;
+    display: block;
+    margin: 0 auto;
+}
+
+.pets .arrow {
+    width: 52px;
+    height: 52px;
+    margin-top: 250px;
+}
+
+.pets .arrow__right {
+    transform: rotate(180deg);
+}
+
+.pets  a.button:last-of-type {
+    display: block;
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 130%;
+    margin: 0 auto;
+   max-width: 261px;
+   white-space: nowrap;
+   margin-top: 55px;
+   
+}
+
 
 /* Help */
 
+.help {
+    height: 611px;
+    background-color: var(--color-light-xl);
+
+}
+
+.help h3 {
+    text-align: center;
+    letter-spacing: 0.06em;
+    padding-top: 80px;
+    margin-bottom: 60px;
+}
+
+.help .icons {
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.icon__containter {
+    margin: 0 60px 55px;
+    text-align: center;
+}
+
+.div_icon {
+    height: 60px;
+    margin-bottom: 30px;
+}
+
+
 /* Donation */
 
-/* Foote*/
+.donation {
+    height: 464px;
+    background-color: var(--color-light-l);
+}
+
+.donation .wrapper {
+    
+    padding-top: 80px;
+}
+
+.donation__content {
+    display: flex;
+    max-width: 915px;
+    column-gap: 30px;
+    margin: 0 auto;
+}
+
+.donation .content__item:nth-of-type(1) {
+    font-family: Georgia;
+    margin-top: 20px;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
+    font-size: 15px;
+}
+
+.donation .content__item:nth-of-type(2) {
+    padding: 10px 0px 0px 15px;
+    background-color: var(--color-primary);
+    display: flex;
+    letter-spacing: 0.06em;
+    
+}
+
+.donation .content__item:nth-of-type(2) a {
+    font-family: Georgia;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 115%;
+
+display: flex;
+align-items: center;
+letter-spacing: 0.06em;
+}
+/* Footer*/
