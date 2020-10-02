@@ -33,6 +33,7 @@ html {
 }
 
 
+
 ul {
     list-style-type: none;
 }
@@ -93,6 +94,14 @@ h5 {
     line-height: 110%;
 }
 
+.visually_hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
 .text__item {
     font-family: Arial;
     font-style: normal;
@@ -113,6 +122,10 @@ a.button {
     padding: 1.5rem 4.5rem;
     white-space: nowrap;
     max-width: 20.7rem;   
+}
+
+a.button:hover {
+    background-color: var(--color-primary-light);
 }
 
 .logo {
@@ -165,6 +178,19 @@ a.button {
     font-weight: normal;
     font-size: 1.5rem;
     line-height: 160%;
+    color: var(--color-light-s);
+}
+
+.header .menu .list__item_link_active {
+    padding-bottom: 0.3rem;
+    border-bottom: 0.3rem solid var(--color-primary);
+}
+
+.header .menu .list__item_link_disabled {
+    color: var(--color-dark-s);
+}
+
+.header .menu .list__item_link:hover {
     color: var(--color-light-s);
 }
 
@@ -257,6 +283,13 @@ a.button {
     border: 0.3rem solid var(--color-primary);
     border-radius: 10rem;
     padding: 1.9rem 1.7rem;
+    transition: 0.5s;
+}
+
+.pets .arrow:hover {
+    cursor: pointer;
+    background-color: var(--color-light-s);
+
 }
 
 .pets .arrow img {
@@ -287,7 +320,16 @@ a.button {
     background-color: var(--color-light-s);
     text-align: center;
     padding-bottom: 3rem;
+    border-radius: 0.9rem 0.9rem 0 0;
+    transition: 0.4s;
 }
+
+.pets .card__item:hover {
+    cursor: pointer;
+    box-shadow: 0 0 1rem 0.5rem rgba(205,205,205,1);
+   
+}
+
 
 .pets .card__title {
     margin-top: 2.5rem;
@@ -300,6 +342,7 @@ a.button {
     background: none;
     padding: 1.3rem 4.3rem;
     border: 0.2rem solid var(--color-primary);
+    transition: 0.3s;
 }
 
 .pets .arrow__right img {
@@ -392,7 +435,12 @@ a.button {
     column-gap: 2rem;
     align-items: baseline;
     word-spacing: 0.2rem;
+    transition: 0.3s;
 }
+
+.donation .text__item:nth-of-type(2):hover {
+    transform: scale(1.1);
+} 
 
 .donation .text__item:nth-of-type(2) a {
     color: var(--color-dark-l);
@@ -420,6 +468,10 @@ a.button {
    
 }
 
+.footer a {
+    color: var(--color-primary)
+}
+
 .footer h3 {
 
     color: var(--color-light-xl);
@@ -434,8 +486,13 @@ a.button {
     color: var(--color-primary);
     letter-spacing: 0.06rem;
     text-align: baseline;
+    transition: 0.3s;
     
-    
+}
+
+
+.footer p:hover {
+    transform: scale(1.1);
 }
 
 .footer .content__wrapper {
@@ -477,37 +534,3 @@ a.button {
 .footer .icon {
     margin-right: 2rem;
 }
-/* На тег section вешаем фон. 
-    На wrapper вешаем 
-
-    Тег section - основной фон.
-    Тег page__wrapper - ограничение контента по ширине
-    content__wrapper - если нужно ограничить как-то контент в самой секции
-    item__wrapper
-    text__wrapper
-
-
-*/
-
-
-/*
-
-
-
-
-
-
-
-.donation .content__item:nth-of-type(2) a {
-    font-family: Georgia;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 115%;
-
-display: flex;
-align-items: center;
-letter-spacing: 0.06em;
-}
-
-*/
