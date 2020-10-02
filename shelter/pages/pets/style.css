@@ -1,0 +1,370 @@
+html {
+    font-size: 10px;
+}
+
+:root {
+    --color-light-s: #FAFAFA;
+    --color-light-l: #F6F6F6;
+    --color-light-xl : #FFFFFF;
+    --color-dark-s: #CDCDCD;
+    --color-dark-m:  #B2B2B2;
+    --color-dark-l: #545454;
+    --color-dark-xl: #4C4C4C;
+    --color-dark-2xl: #444444;
+    --color-dark-3xl:#292929;
+    --color-primary: #F1CDB3;
+    --color-primary-light: #FDDCC4;
+    --start-screen-gradient-background: url(../../assets/images/noise_transparent@2x.png), 
+    radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;;
+    --footer-gradient-background : url(../../assets/images/noise_transparent@2x.png), 
+    radial-gradient(110.67% 538.64% at 5.73% 50%, 
+    #513D2F 0%, #1A1A1C 100%), #211F20;
+    
+
+
+}
+
+
+
+*, *::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+ul {
+    list-style-type: none;
+}
+
+a {
+
+    text-decoration: none;
+}
+
+
+
+
+.page__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 4.4rem;
+    line-height: 5.7rem;
+    
+    color: var(--color-light-xl);
+}
+
+h3 {
+    font-size: 3.5rem;
+    line-height: 130%;
+    color: var(--color-dark-3xl);
+    letter-spacing: 0.06em;
+}
+
+h4 {
+  
+    font-size: 2rem;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    font-family: "Georgia", sans-serif;
+}
+
+h5 {
+    
+    font-size: 1.5rem;
+    line-height: 110%;
+}
+
+.visually_hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+.text__item {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 160%;
+}
+
+a.button {
+    display: block;
+    background-color: var(--color-primary);
+    color: var(--color-dark-xl);
+    border-radius: 10rem;
+    text-align: center;
+    font-family: Georgia;
+    font-size: 1.7rem;
+    letter-spacing: 0.06em;
+    padding: 1.5rem 4.5rem;
+    white-space: nowrap;
+    max-width: 20.7rem;   
+}
+
+a.button:hover {
+    background-color: var(--color-primary-light);
+}
+
+
+.header {
+    background-color: var(--color-light-xl);
+}
+
+.logo {
+    max-width: 18.4rem;
+    white-space: nowrap;
+}
+
+
+.logo__title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.2rem;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
+}
+
+.logo__subtitle {
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1em;
+    color: var(--color-dark-xl);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+.header .page__wrapper {
+    display: flex;
+    padding: 3rem 0;
+}
+
+.header .menu .list {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 3.5rem;
+    flex-wrap: wrap;
+    padding-top: 1.6rem;
+    
+}
+
+
+.header .menu .list__item_link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 160%;
+    color: var(--color-dark-l);
+}
+
+.header .menu .list__item_link_active {
+    padding-bottom: 0.3rem;
+    border-bottom: 0.3rem solid var(--color-primary);
+}
+
+
+.header .menu .list__item_link:hover {
+    color: var(--color-dark-3xl);
+}
+
+/* Main */
+
+.pets {
+    background-color: var(--color-light-l);
+}
+
+.pets .card__items {
+    margin-top: 6rem;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 4rem;
+    row-gap: 3rem ;
+}
+
+.pets .page__wrapper {
+    padding: 8rem 0 10rem 0;
+}
+
+.pets h3 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.pets .card__item {
+    background-color: var(--color-light-s);
+    text-align: center;
+    padding-bottom: 3rem;
+    border-radius: 0.9rem 0.9rem 0 0;
+    transition: 0.4s;
+}
+
+.pets .card__item:hover {
+    cursor: pointer;
+    box-shadow: 0 0 1rem 0.5rem rgba(205,205,205,1);
+   
+}
+
+
+.pets .card__title {
+    margin-top: 2.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.pets .card__button {
+    max-width: 18.7rem;
+    margin: 0 auto;
+    background: none;
+    padding: 1.3rem 4.3rem;
+    border: 0.2rem solid var(--color-primary);
+    transition: 0.3s;
+}
+
+
+
+.pagination__container {
+    padding-top: 6rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 34rem;
+}
+
+.pagination__item {
+   background-color: none;
+   font-size: 2rem;
+   width: 5.2rem;
+   height: 5.2rem;
+   text-align: center;
+   vertical-align: middle;
+   border-radius: 50%;
+   border: 2px solid var(--color-primary);
+   transition: 0.5s;
+  
+}
+
+.pagination__item_active {
+    background-color: var(--color-primary);
+}
+
+
+.pagination__item:hover:not(:disabled) {
+    cursor: pointer;
+    background-color: var(--color-primary);
+}
+
+.pagination__item:disabled{
+    border-color: var(--color-dark-s);
+    color: var(--color-dark-s);
+    cursor: default;
+}
+
+
+.footer {
+    background: var(--start-screen-gradient-background);
+    width: 100%;
+}
+
+.footer .page__wrapper {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.footer a {
+    color: var(--color-primary)
+}
+
+.footer h3 {
+
+    color: var(--color-light-xl);
+}
+
+.footer p {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 115%;
+    color: var(--color-primary);
+    letter-spacing: 0.06rem;
+    text-align: baseline;
+    transition: 0.3s;
+    
+}
+
+
+.footer p:hover {
+    transform: scale(1.1);
+}
+
+.footer .content__wrapper {
+    padding-top: 1.6rem;
+}
+
+.footer .content__wrapper:last-of-type {
+    padding-top: 0;
+}
+
+
+.footer .content__wrapper:first-child {
+    max-width: 27.9rem;
+}
+
+
+.footer .content__wrapper:first-child p {
+    margin-top: 4.2rem;
+}
+
+.footer .content__wrapper:first-child p:last-child {
+    margin-top: 3.8rem;
+}
+
+.footer .content__wrapper:nth-of-type(2) {
+    max-width: 30.2rem;
+}
+
+
+.footer .content__wrapper:nth-of-type(2) p {
+    margin-top: 3.4rem;
+}
+
+
+.footer .content__wrapper:nth-of-type(2) p:last-child {
+    margin-top: 2.9rem;
+}
+
+.footer .icon {
+    margin-right: 2rem;
+}
+
+
+
