@@ -208,9 +208,12 @@ a.button:hover {
 
 .promo .text__wrapper {
     
-    margin-bottom: 24.8rem;
+    margin-bottom: 24.5rem;
 }
 
+.promo .text__header {
+    max-width: 31rem;
+}
 
 .promo .text__item {
  
@@ -250,9 +253,13 @@ a.button:hover {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: -0.2rem;
+    
     padding-top: 8rem;
     padding-bottom: 10rem;
+}
+
+.about .text__header {
+    max-width: 37rem;
 }
 
 .about .text__wrapper {
@@ -294,6 +301,9 @@ a.button:hover {
     padding: 8.1rem 0 10.2rem 0;
 }
 
+.pets .page__wrapper > h3 {
+    white-space: pre-line;
+}
 .pets h3 {
     margin: 0 auto;
     text-align: center;
@@ -385,6 +395,11 @@ a.button:hover {
     
 }
 
+.help .section__title {
+    max-width: 31rem;
+    margin: 0 auto;
+}
+
 .help h3 {
     text-align: center;
 }
@@ -419,6 +434,10 @@ a.button:hover {
     justify-content: space-between;
     align-items: center;
   
+}
+
+.donation .text__header {
+    max-width: 30.8rem
 }
 
 .donation .text__wrapper {
@@ -632,13 +651,19 @@ a.button:hover {
     }
 
     .help .icon__containter {
-       margin-left: 4rem;
-       margin-right: 4rem;
+       margin: 0;
+       margin-bottom: 5.5rem;
+       width: calc((100% - 12rem)/3);
+       align-content: space-between;
     }
 
     .donation .page__wrapper {
         flex-direction: column-reverse;
         align-items: center;
+    }
+
+    .donation .img__wrapper {
+        margin-top: -2rem;
     }
 
     .footer .page__wrapper {
@@ -648,46 +673,20 @@ a.button:hover {
     .footer .content__wrapper:last-child {
        margin: 0 auto;
     }
+    
+    .footer .content__wrapper:first-child .content__item {
+        margin-top: 4.4rem;
+    }
+
+    .footer .content__wrapper:nth-child(2) .content__item {
+        margin-top: 3.3rem;
+    }
         
     
 }
 
 
-/*
 
-@media (max-width: 1279px) {
-    
- 
-
-
-.donation .text__wrapper {
-    flex-basis: 28.2rem;
-    margin-bottom: 6rem;
-}
-
-.donation .text__item:nth-of-type(3) {
-    max-width: 34.9rem;
-}
-
-.footer .page__wrapper {
-    flex-wrap: wrap;
-    padding-left: 6rem;
-    padding-right: 6rem;
-}
-
-.footer .content__wrapper {
-    row-gap: 3rem;
-}
-
-.footer .content__wrapper:last-child {
-    margin: 0 auto;
-}
-
-
-
-}
-
-*/
 @media (max-width:767px) {
 
     .page__wrapper {
@@ -695,6 +694,7 @@ a.button:hover {
         margin: 0 auto;
     }
 
+   
 
     #menu__toggle {
         opacity: 0;
@@ -743,13 +743,51 @@ a.button:hover {
         display: none;
     }
 
+    .promo .text__header {
+        font-size: 2.5rem;
+    }
+
+    .promo .text__wrapper {
+        text-align: center;
+        margin-bottom: 10.5rem;
+    }
+
+    .promo .text__button {
+        margin: 0 auto;
+        margin-top: 4.2rem;
+    }
+
+    .promo .img__wrapper {
+        max-width: 26rem;
+    }
+
+    .about .page__wrapper, 
+    .pets .page__wrapper , 
+    .donation .page__wrapper {
+        padding-top: 4.2rem;
+        padding-bottom: 4.2rem;
+    }
+    
+
     .about .img__wrapper {
         max-width: 26rem;
+        margin-top: 4.2rem;
+
+    }
+
+    .about .text__header {
+        font-size: 2.5rem;
+        text-align: center;
     }
 
     .about .text__wrapper {
         margin: 0 auto;
         max-width: 27rem;
+    }
+
+
+    .pets .page__wrapper > h3 {
+        font-size: 2.5rem;
     }
 
     .pets .card__container {
@@ -768,6 +806,11 @@ a.button:hover {
         order: 2;
     }
 
+    .pets .card__items {
+        margin-top: 4.2rem;
+        margin-bottom: 2rem;
+    }
+
     .pets .card__item:nth-child(2) {
         display: none;
     }
@@ -777,18 +820,70 @@ a.button:hover {
     }
 
     .help {
-        padding-left: 0;
-        padding-right: 0;
+        padding: 4.2rem 0;
+
+    }
+
+    .help .section__title {
+        font-size: 2.5rem;
+        white-space: pre-line;
     }
 
     .help .icons {
-        width: 13rem;
-
+        margin-top: 4.2rem;
     }
+
+    .help .icons h4 {
+        font-size: 1.5rem;
+    }
+
+    .help .icon__containter {
+        
+      
+        width: calc((100% - 3rem)/2);
+        
+     }
+
+     .donation .text__header {
+         font-size: 2.5rem;
+     }
 
     .donation .page__wrapper {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .donation .text__wrapper {
+        text-align: center;
+        flex-basis: 28.1rem;
+       
+    }
+
+    .donation .text__item:nth-of-type(1)  {
+       white-space: nowrap;
+       letter-spacing: 0.02em;
+    }
+
+    .donation .text__item:nth-of-type(2) {
+        white-space: nowrap;
+        margin: 0 auto;
+        margin-left: 0.9rem;
+        margin-right: 1rem;
+    }
+
+    .donation .card__number {
+        font-size: 1.5rem;
+       
+    }
+
+    .donation .text__item:nth-of-type(3) {
+        text-align: justify;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .donation .img__wrapper {
+        margin-top: 4.2rem;
     }
 
     .donation .img__wrapper img {
@@ -800,9 +895,15 @@ a.button:hover {
         padding-right: 0;
     }
 
+    .footer .content__wrapper .img {
+        max-width: 26rem;
+    }
+
     .footer .content__wrapper img {
         width: 100%;
     }
+
+ 
 
    
   
