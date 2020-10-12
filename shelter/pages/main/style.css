@@ -354,6 +354,8 @@ a.button:hover {
     padding-bottom: 3rem;
     border-radius: 0.9rem 0.9rem 0 0;
     transition: 0.4s;
+    border-top-left-radius: 9%;
+    border-top-right-radius: 9%;
 }
 
 .pets .card__item:hover {
@@ -709,6 +711,8 @@ a.button:hover {
           z-index: 1;
           position: relative;
           margin-top: 0.7rem;
+          top: 2rem;
+          right: 1.5rem;
 
       }
 
