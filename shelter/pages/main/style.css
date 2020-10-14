@@ -346,16 +346,22 @@ a.button:hover {
 }
 
 .pets .card__item {
-    flex-basis: 27rem;
+    width: 27rem;
+    height: 43.5rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    flex-grow: 0;
+    justify-content: space-between;
     background-color: var(--color-light-s);
-    text-align: center;
-    padding-bottom: 3rem;
-    border-radius: 0.9rem 0.9rem 0 0;
-    transition: 0.4s;
     border-top-left-radius: 9%;
     border-top-right-radius: 9%;
+    padding-bottom: 3rem;
+}
+
+
+
+.pets .card__item:nth-child(n + 4) {
+    display: none;
 }
 
 .pets .card__item:hover {
@@ -696,13 +702,18 @@ a.button:hover {
         margin: 0 auto;
     }
 
-   
+
+    .header .menu {
+        position: relative;
+    }
+
 
     #menu__toggle {
         opacity: 0;
       }
 
       .menu__btn {
+          position: fixed;
           display: flex;
           align-items: center;
           width: 3rem;
@@ -741,11 +752,39 @@ a.button:hover {
         bottom: 0;
     }
 
+    #menu__toggle:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+    }
 
+    #menu__toggle:checked ~ .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0);
+        
+    }
+
+    #menu__toggle:checked ~ .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+      }
 
     .header .menu .list {
-        display: none;
+      display: none;
+        transition: 0.75s;
     }
+
+    #menu__toggle:checked ~ .list {
+      display: flex;
+      padding-top: 0.8rem;
+      padding-bottom: 1rem;
+      position: absolute;
+      word-wrap: none;
+      align-items: flex-start;
+      top: 6rem;
+      right: 1rem;
+      width: 14rem;
+      justify-content: center;
+      background-color: #000;
+      } 
 
     .promo .text__header {
         font-size: 2.5rem;
