@@ -122,6 +122,7 @@ a.button {
     padding: 1.5rem 4.5rem;
     white-space: nowrap;
     max-width: 20.7rem;   
+    
 }
 
 a.button:hover {
@@ -602,12 +603,135 @@ a.button:hover {
 }
 
 .undisplayed {
-    display: none;
+    display: none !important;
+    overflow-y: hidden;
+   
 }
 
 .mobile__menu{
     display: none;
 }
+
+
+.pets__modal {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+   width: 95.2rem;
+   z-index: 5000;
+ }
+
+ .modal__active {
+    transform: translate(-50%, -50%) scale(1);
+ }
+
+
+
+
+ .modal__container {
+     width: 90rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background-color: var(--color-light-s);
+    border-radius: 3%;
+ }
+
+ .pets__modal b {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+ }
+
+ .pets__modal p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+ }
+
+ .pets__modal li {
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+ }
+
+ .pets__modal span {
+     font-weight: bold;
+ }
+
+ .pets__modal li:not(:last-child) {
+     margin-bottom: 1rem;
+ }
+
+.pets__modal img {
+    width: 50rem;
+    border-radius: 3%;
+}
+
+.pets__modal .text__wrapper {
+    max-width: 35.1rem;
+    margin-right: 2rem;
+}
+
+.pets__modal h3 {
+    margin-bottom: 1rem;
+}
+
+.pets__modal button {
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 0;
+    width: 5.2rem;
+    height: 5.2rem;
+    border: 2px solid #F1CDB3;
+    box-sizing: border-box;
+    border-radius: 100px;
+    background: 50% 50% no-repeat url('../../assets/images/Close.svg') var(--color-light-s);
+    z-index: 15000;
+}
+
+.overlay {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  
+  background: rgba(41, 41, 41, 0.6);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.overlay__active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.unscrollable {
+    overflow-y: hidden;
+}
+
+/* Прописать все ховеры для модалки и заадаптивить его
+    Потом делаю логику
+    Вспомнить про затемнение вокруг. Может, перед модалкой пустой див с затемнением?
+*/
 
 @media (max-width: 1279px) {
     .page__wrapper {
@@ -708,6 +832,27 @@ a.button:hover {
         margin-top: 3.3rem;
     }
         
+    .pets__modal {
+        width: 68.2rem;
+       
+    }
+
+    .modal__container {
+        width: 63rem;
+    }
+
+    .pets__modal img {
+        width: 35rem;
+    }
+
+    .pets__modal .text__wrapper {
+        max-width: 26rem;
+        margin-bottom: 3.8rem;
+    }
+
+    .pets__modal h3 {
+        margin-top: 1rem;
+    }
     
 }
 
@@ -721,14 +866,14 @@ a.button:hover {
     }
 
     .header .menu__button {
-        position: relative;
-        margin-top: 1.9rem;
-        margin-right: 2rem;
+        position: fixed;
+        top: 5.5rem;
+        right: 3.5rem;
         background-image: url('../../assets/images/Burger.svg');
         background-repeat: no-repeat;
         width: 30px;
         height: 22px;
-        
+        z-index: 1;
     }
 
     .header .menu .list {
@@ -739,7 +884,7 @@ a.button:hover {
  
     .mobile__menu {
         overflow: hidden;
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         width: 32rem;
@@ -749,7 +894,7 @@ a.button:hover {
         align-items: center;
         background-color: var(--color-dark-3xl);
         transition: 1.25s;
-        
+        z-index: 10;
         
     }
 
@@ -759,11 +904,6 @@ a.button:hover {
     }
 
    
-   /* Запретить прокрутку */
-
-   .unscrollable {
-       overflow: hidden;
-   }
  
     .mobile__menu .list {
         white-space: nowrap;
@@ -968,13 +1108,31 @@ a.button:hover {
         width: 100%;
     }
 
- 
+    .pets__modal {
+        width: 27rem;
+    }
 
-   
-  
+      .modal__container {
+         padding-left: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          
+          width: 24rem;
+      }
 
-    
-    
+      .pets__modal img {
+          display: none;
+      }
 
+
+      .pets__modal p {
+          text-align: justify;
+      }
 
 }
+
+/* Логотип должен перескакивать в бургер меню при его открытии.
+То есть внешний лого при открытии должен плавно исчезать, Убрать z-index.
+Сделать лого ссылкой с двумя спанами и дисплей блок
+*/

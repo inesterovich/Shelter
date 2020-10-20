@@ -1,19 +1,33 @@
 let sliderContainer = document.querySelector('.card__items')
 let leftArrow = document.querySelector('.arrow__left');
 let rightArrow = document.querySelector('.arrow__right');
+let body = document.querySelector('body')
 let slidesCollection = sliderContainer.children;
 
 let petsHtml = generateHTMLContent(petsData);
 let slides = randomizeHTML(petsHtml);
 
+let menuBtn = document.querySelector('.menu__button');
+let modals = document.querySelector('.modals')
+
 slides.forEach(item => sliderContainer.insertAdjacentHTML('beforeend', item))
+
+let overlay = document.querySelector('.overlay');
 
 for (let i = 0 ; i < slidesCollection.length; i++) {
 
   slidesCollection[i].classList.add('card__item_visible')
 }
 
-/*Теперь мне нужно опубликовать карточки */
+function getAbsoluteCoords(elem) {
+
+  let box = elem.getBoundingClientRect();
+
+return {
+  top: box.top + pageYOffset,
+  left: box.left + pageXOffset
+}
+}
 
 function generateHTMLContent(data) {
 
@@ -34,7 +48,11 @@ result.push(template)
 return result;
   
 }
+/*
+1. Сделать модальное окно. Стилизовать и заадаптивить его
+2. 
 
+*/
 
 
 function randomizeHTML(HTMLColllection) {
@@ -74,20 +92,64 @@ function randomizeHTML(HTMLColllection) {
 
 
 function menu() {
-  let body = document.querySelector('body')
-  let menuBtn = document.querySelector('.menu__button');
+ 
+  
   let modals = document.querySelector('.modals');
   let mobileMenu = modals.querySelector('.mobile__menu');
-
+  
+  overlay.classList.toggle('overlay__active');
   menuBtn.classList.toggle('rotate');
   mobileMenu.classList.toggle('mobile__menu_hidden');
-  body.classList.toggle('unscrollable');
+
+ 
 }
 
 
+function addModalContent(dataArray, id) {
+  let template = ` <section class="pets__modal">
+
+  <button class="close__modal" type="button">Закрыть</button>
+  <div class="modal__container">
+      
+      <div class="img__wrapper">
+
+          <div class="img">
+              <img src="../../assets/images/pets-${dataArray[id].name}.png" alt="${dataArray[id].type} ${dataArray[id].name}">
+          </div>
+   </div>
+
+  <div class="text__wrapper">
+          <h3 class="text__header">
+              ${dataArray[id].name}
+              </h3>
+          <b> ${dataArray[id].type} -  ${dataArray[id].breed}</b>
+
+          <p class="text__item"> ${dataArray[id].description}</p>
+          <ul>
+              <li><span>Age:</span>  ${dataArray[id].age}</li>
+              <li><span>Inoculations:</span>  ${dataArray[id].inoculations.join()}</li>
+              <li><span>Diseases:</span>  ${dataArray[id].diseases.join()}</li>
+              <li><span>Parasites:</span>  ${dataArray[id].parasites.join()}</li>
+          </ul>
+
+     
+
+      
+   </div>   
+    
+
+
+</div>
+</section>
+`
+
+return template;
+}
+
+
+
 document.addEventListener ('click', (event) => {
-
-
+  console.log(event.target);
   let targetDOM = event.target.classList;
   let targetArray = Array.from(targetDOM);
   
@@ -105,16 +167,47 @@ document.addEventListener ('click', (event) => {
           i--;
         } else {
 
-          slidesCollection[i].classList.add('card__item_visible')
+          slidesCollection[i].classList.add('card__item_visible');
         }
 
     }
+   }
+
+   if (targetArray.includes('card__button')) {
+    event.preventDefault();
+    let targetCardId = event.target.parentNode.id;
+    let petsModalContent = addModalContent(petsData, targetCardId);
+    modals.insertAdjacentHTML('beforeend', petsModalContent)
+    let petsModal = modals.querySelector('.pets__modal');
+   menuBtn.classList.add('hidden');
+    body.classList.add('unscrollable');
+   petsModal.classList.add('modal__active');
+   overlay.classList.add('overlay__active');
+
+   }
+
+
+   if (targetArray.includes('close__modal') || targetArray.includes('pets__modal') || (targetArray.includes('overlay') &&
+    modals.children.length > 1)) {
+      let petsModal = modals.querySelector('.pets__modal');
+     menuBtn.classList.remove('hidden');
+    body.classList.remove('unscrollable');
+    overlay.classList.remove('overlay__active');
+   petsModal.classList.remove('modal__active');
+   petsModal.remove();
+   }
+
+   if (targetArray.includes('overlay') && menuBtn.classList.contains('rotate')) {
+     menu()
    }
 
   
   
   })
 
+
+
+ 
  
 
 
