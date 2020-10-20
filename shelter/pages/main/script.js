@@ -96,10 +96,12 @@ function menu() {
   
   let modals = document.querySelector('.modals');
   let mobileMenu = modals.querySelector('.mobile__menu');
+  let logo = document.querySelector('.logo');
   
   overlay.classList.toggle('overlay__active');
   menuBtn.classList.toggle('rotate');
   mobileMenu.classList.toggle('mobile__menu_hidden');
+  logo.classList.toggle('logo__fixed');
 
  
 }
