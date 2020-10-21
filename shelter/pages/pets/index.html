@@ -12,40 +12,40 @@
     <header class="header">
               
         <div class="page__wrapper">
-            
-         <div class="logo">
-                     <p class="logo__title">
-                         Cozy House
-                     </p>
-                     
-                     <p class="logo__subtitle">
-                         Shelter for pets in Boston
-                   
-                 </p>
-   
-        
+            <div class="header__fixed">
+                                
+                <a href="#" class="logo" onclick="preventDefault()">
+                    <span class="logo__title">
+                        Cozy House
+                    </span>
+                    
+                    <span class="logo__subtitle">
+                        Shelter for pets in Boston
+                  
+                </span>
+  
+       
+        </a>
+
+        <nav class="menu" >
+             
+              <div class="menu__button">
+                      
+                
+                </div>
+
+                <ul class="list">
+                    <li class="list__item"><a class="list__item_link list__item_link_active" href="#">About the shelter</a></li>
+                    <li class="list__item"><a class="list__item_link list__item_link_disabled" href="../pets/index.html">Our pets</a></li>
+                    <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#" onclick="preventDefault()">Help the shelter</a></li>
+                    <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#" onclick="preventDefault()">Contacts</a></li>
+                </ul>
+    
+        </nav>
+ 
+       
          </div>
 
-         <nav class="menu" >
-             <div class="hamburger-menu">
-                 <input id="menu__toggle" type="checkbox" >
-                 <label class="menu__btn" for="menu__toggle">
-                   <span></span>
-                 </label>
-
-             <!-- <button class="gamburger__menu">
-                 <div></div> -->
-
-             </button>
-                 <ul class="list">
-                     <li class="list__item"><a class="list__item_link list__item_link_active" href="#">About the shelter</a></li>
-                     <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#">Our pets</a></li>
-                     <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#">Help the shelter</a></li>
-                     <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#">Contacts</a></li>
-                 </ul>
-     
-         </nav>
-  
         </div>
  </header>
             
@@ -57,7 +57,7 @@
     <h3>Our friends who
         are looking for a house</h3>
     <div class="card__items">
-                    
+<!--                     
         <div class="card__item">
             <div class="img__wrapper">
                 <img src="../../assets/images/pets-katrine.png" alt="Cat Katrine" class="card__img">
@@ -110,7 +110,7 @@
 
     <div class="card__item">
         <div class="img__wrapper">
-            <img src="../../assets/images/pets-scarlet.png" alt="Dog Scarlet" class="card__img">
+            <img src="../../assets/images/pets-scarlett.png" alt="Dog Scarlet" class="card__img">
         </div>
         <h4 class="card__title">Scarlet</h4>
         <a href="#" class="button card__button">Learn more</a>    
@@ -122,15 +122,14 @@
         </div>
         <h4 class="card__title">Freddie</h4>
         <a href="#" class="button card__button">Learn more</a>    
-    </div>
+    </div> -->
+
+
+
 </div>
 
 <div class="pagination__container">
-    <button class="pagination__item pagination__item_disabled" disabled>&lt;&lt;</button>
-    <button class="pagination__item pagination__item_disabled" disabled>&lt;</button>
-    <button class="pagination__item pagination__item_active">1</button>
-    <button class="pagination__item">&gt;</button>
-    <button class="pagination__item">&gt;&gt;</button>
+
 </div>
 
 
@@ -190,6 +189,20 @@
     </div>
     </footer>
 
+    <div class="modals">
+        <nav class="modal mobile__menu mobile__menu_hidden">
+            <ul class="list">
+                <li class="list__item"><a class="list__item_link list__item_link_active" href="#">About the shelter</a></li>
+                <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#">Our pets</a></li>
+                <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#">Help the shelter</a></li>
+                <li class="list__item"><a class="list__item_link list__item_link_disabled" href="#">Contacts</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    <div class="overlay"></div>
+<script src="../pets.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

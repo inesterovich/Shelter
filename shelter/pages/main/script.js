@@ -48,11 +48,6 @@ result.push(template)
 return result;
   
 }
-/*
-1. Сделать модальное окно. Стилизовать и заадаптивить его
-2. 
-
-*/
 
 
 function randomizeHTML(HTMLColllection) {

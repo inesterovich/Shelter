@@ -356,7 +356,6 @@ a.button:hover {
 
 
  .pets .card__items {
-     transform: scale(1px);
     margin: 6rem 5.3rem ;
     justify-content: space-between;
     display: flex;
@@ -1141,7 +1140,3 @@ a.button:hover {
 
 }
 
-/* Логотип должен перескакивать в бургер меню при его открытии.
-То есть внешний лого при открытии должен плавно исчезать, Убрать z-index.
-Сделать лого ссылкой с двумя спанами и дисплей блок
-*/

@@ -129,9 +129,14 @@ a.button:hover {
 
 .header {
     background-color: var(--color-light-xl);
-}
+  
+} 
+
 
 .logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 18.4rem;
     white-space: nowrap;
 }
@@ -160,23 +165,25 @@ a.button:hover {
 }
 
 
-.header .page__wrapper {
+
+.header__fixed {
+    background-color: var(--color-light-xl);
     display: flex;
     padding: 3rem 0;
-}
-
-#menu__toggle {
-    display: none;
+    justify-content: space-between;
+    position: fixed;
+    width: 120rem;
 }
 
 
 .header .menu .list {
+  
     display: flex;
     justify-content: space-between;
     column-gap: 3.5rem;
     flex-wrap: wrap;
     padding-top: 1.6rem;
-    
+
 }
 
 
@@ -197,46 +204,44 @@ a.button:hover {
 
 .header .menu .list__item_link:hover {
     color: var(--color-dark-3xl);
-}
+} 
+
 
 /* Main */
-
-.pets {
-    background-color: var(--color-light-l);
+ main {
+    padding-top: 12rem;
 }
 
-.pets .page__wrapper {
+.pets {
     padding-top: 8rem;
-    padding-bottom: 10rem;
 }
 
 .pets .page__wrapper > h3 {
     text-align: center;
-    max-width: 40rem;
-    margin: 0 auto;
     white-space: pre-line;
 }
 
 .pets .card__items {
     margin-top: 6rem;
-    margin-bottom: 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+   display: grid;
+   grid-template-columns: repeat(4, auto);
    row-gap: 3rem;
- 
+    column-gap: 4rem;
+}
+
+.pets .card__item:nth-child(n + 9) {
+    display: none;
 }
 
 .pets .card__item {
-    width: 27rem;
-    height: 43.5rem;
     display: flex;
     flex-direction: column;
+    height: 43.5rem;
+    width: 27rem;
+    padding-bottom: 3rem;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-evenly;
-    background-color: var(--color-light-s);
-    border-top-left-radius: 9%;
-    border-top-right-radius: 9%;
+    border-radius: 5% 5% 0 0;
 }
 
 .pets .card__item:hover {
@@ -245,17 +250,9 @@ a.button:hover {
    
 }
 
-.pets .card__item .img__wrapper {
-    margin-top: -3rem;
-    width: 27rem;
-}
-
-.pets .card__item img {
-    width: 100%;
-}
-
 .pagination__container {
-    padding-top: 3rem;
+    padding-top: 6rem;
+    padding-bottom: 10rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -272,23 +269,27 @@ a.button:hover {
    border-radius: 50%;
    border: 2px solid var(--color-primary);
    transition: 0.5s;
+   outline: none;
+   pointer-events: all;
   
 }
 
 .pagination__item_active {
     background-color: var(--color-primary);
+    
 }
 
 
-.pagination__item:hover:not(:disabled) {
+.pagination__item:not(.pagination__item_disabled):not(.pagination__item_active):hover{
     cursor: pointer;
     background-color: var(--color-primary);
 }
 
-.pagination__item:disabled{
+.pagination__item_disabled{
     border-color: var(--color-dark-s);
     color: var(--color-dark-s);
     cursor: default;
+    pointer-events: none;
 }
 
 
@@ -376,10 +377,19 @@ a.button:hover {
     left: 0;
 }
 
+.mobile__menu{
+    display: none;
+}
+
+
 @media (max-width: 1279px) {
     .page__wrapper {
         max-width: 70.8rem;
         margin: 0 auto;
+    }
+
+    .header__fixed {
+        width: 70.8rem;
     }
 
     .pets .page__wrapper {
@@ -388,9 +398,14 @@ a.button:hover {
         padding-bottom: 7rem;
     }
 
-    .pets .card__items {
-        max-height: calc(43.5rem * 3 + 3rem*2);
-    }
+  .pets .card__items {
+      grid-template-columns: repeat(2, auto);
+  }
+
+  .pets .card__item:nth-child(n + 7) {
+      display: none;
+  }
+
 
     .footer .page__wrapper {
         flex-wrap: wrap;
@@ -420,56 +435,92 @@ a.button:hover {
         margin: 0 auto;
     }
 
-   
+    .menu__button {
+        position: fixed;
+        top: 5.5rem;
+        right: 3.5rem;
+        background-image: url('../../assets/images/Burger__pets.svg');
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 22px;
+       z-index: 10000;
 
-    #menu__toggle {
-        opacity: 0;
-      }
-
-      .menu__btn {
-          top: 2rem;
-          right: 3rem;
-          display: flex;
-          align-items: center;
-          width: 3rem;
-          height: 2.2rem;
-          cursor: pointer;
-          z-index: 1;
-          position: relative;
-          margin-top: 0.7rem;
-
-      }
-
-      .menu__btn > span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: #000000;
-      }
-
-      .menu__btn > span::before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 2px;
-          background-color: #000000;
-          top: 0;
-      }
-
-      .menu__btn > span::after{
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #000000;
-        bottom: 0;
     }
-
-
+/* Меню пока не доделано - нужно продмать фон для футера на 320 - сделать фиксированным всё, включая фон.
+Возможно контейнером фона получится - до враппера 
+*/
 
     .header .menu .list {
         display: none;
     }
+
+    
+    .mobile__menu {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 32rem;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-dark-3xl);
+        transition: 1.25s;
+        z-index: 10;
+        
+    }
+
+    .mobile__menu_hidden {
+        transform: translateX(100%);
+        width: 0;
+    }
+
+   
+ 
+    .mobile__menu .list {
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+       width: 32rem;
+       height: 40vh;
+       margin-top: 7rem;
+      
+
+    }
+
+    .mobile__menu .list__item_link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 160%;
+    color: var(--color-light-s);
+}
+
+.mobile__menu .list__item_link_active {
+    padding-bottom: 0.3rem;
+    border-bottom: 0.3rem solid var(--color-primary);
+}
+
+.mobile__menu .list__item_link_disabled {
+    color: var(--color-dark-s);
+}
+
+.mobile__menu .list__item_link:hover {
+    color: var(--color-light-s);
+}
+
+
+
+
+    .rotate {
+        transform: rotate(-90deg);
+    }
+
 
     .pets .page__wrapper {
         padding-left: 0;
@@ -481,10 +532,14 @@ a.button:hover {
     }
 
     .pets .card__items {
-        margin-top: 4.2rem;
-        justify-content: center;
-        max-height: calc(43.5rem*3 + 3rem*2);
+        grid-template-columns: repeat(1, auto);
     }
+  
+    .pets .card__item:nth-child(n + 4) {
+        display: none;
+    }
+  
+  
 
     .footer .page__wrapper {
         padding-left: 0;
