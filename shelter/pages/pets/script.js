@@ -8,6 +8,7 @@ let cardsPerPage = getCardPerPage();
 let menuBtn = document.querySelectorAll('.menu__button');
 let modals = document.querySelector('.modals')
 let overlay = document.querySelector('.overlay');
+let body = document.querySelector('body');
 
 generatePagination(cardsArry);
 let cards = cardsArry.slice(0, cardsPerPage);
@@ -114,6 +115,47 @@ function menu() {
  
 }
 
+function addModalContent(dataArray, id) {
+  let template = ` <section class="pets__modal">
+
+  <button class="close__modal" type="button">Закрыть</button>
+  <div class="modal__container">
+      
+      <div class="img__wrapper">
+
+          <div class="img">
+              <img src="../../assets/images/pets-${dataArray[id].name}.png" alt="${dataArray[id].type} ${dataArray[id].name}">
+          </div>
+   </div>
+
+  <div class="text__wrapper">
+          <h3 class="text__header">
+              ${dataArray[id].name}
+              </h3>
+          <b> ${dataArray[id].type} -  ${dataArray[id].breed}</b>
+
+          <p class="text__item"> ${dataArray[id].description}</p>
+          <ul>
+              <li><span>Age:</span>  ${dataArray[id].age}</li>
+              <li><span>Inoculations:</span>  ${dataArray[id].inoculations.join()}</li>
+              <li><span>Diseases:</span>  ${dataArray[id].diseases.join()}</li>
+              <li><span>Parasites:</span>  ${dataArray[id].parasites.join()}</li>
+          </ul>
+
+     
+
+      
+   </div>   
+    
+
+
+</div>
+</section>
+`
+
+return template;
+}
+
 
 
 function generateHTMLContent(data) {
@@ -157,8 +199,33 @@ let targetDOM = event.target.classList;
    let mobileBtn = menuBtn[1]
 
    if (targetArray.includes('overlay') && mobileBtn.classList.contains('rotate')) {
-    menu()
+    menu();
   }
+
+  if (targetArray.includes('card__button')) {
+    event.preventDefault();
+    let targetCardId = event.target.parentNode.id;
+    let petsModalContent = addModalContent(petsData, targetCardId);
+    modals.insertAdjacentHTML('beforeend', petsModalContent)
+    let petsModal = modals.querySelector('.pets__modal');
+   menuBtn[0].classList.add('hidden');
+    body.classList.add('unscrollable');
+   petsModal.classList.add('modal__active');
+   overlay.classList.add('overlay__active');
+
+   }
+
+
+   if (targetArray.includes('close__modal') || targetArray.includes('pets__modal') || (targetArray.includes('overlay') &&
+    modals.children.length > 1)) {
+      let petsModal = modals.querySelector('.pets__modal');
+     menuBtn[0].classList.remove('hidden');
+    body.classList.remove('unscrollable');
+    overlay.classList.remove('overlay__active');
+   petsModal.classList.remove('modal__active');
+   petsModal.remove();
+   }
+
 
  
  
