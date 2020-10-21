@@ -239,6 +239,10 @@ a.button:hover {
     display: none;
 }
 
+.pets .card__title {
+    pointer-events: none;
+}
+
 .pets .card__item {
     display: flex;
     flex-direction: column;
@@ -250,10 +254,33 @@ a.button:hover {
     border-radius: 5% 5% 0 0;
 }
 
+.pets .card__item .img__wrapper {
+    pointer-events: none;
+}
+
+.pets .card__item img {
+    pointer-events: none;
+}
+
 .pets .card__item:hover {
     cursor: pointer;
     box-shadow: 0 0 1rem 0.5rem rgba(205,205,205,1);
    
+}
+
+.pets .card__item:hover > .card__button {
+    background-color: var(--color-primary);
+}
+
+.pets .card__button {
+    background: none;
+    border: 0.2rem solid var(--color-primary);
+}
+
+
+
+.pets .card__button:hover {
+    background-color: var(--color-primary);
 }
 
 .pagination__container {
@@ -278,6 +305,10 @@ a.button:hover {
    outline: none;
    pointer-events: all;
   
+}
+
+.unscrollable {
+    overflow-y: hidden;
 }
 
 

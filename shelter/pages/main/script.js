@@ -8,9 +8,11 @@ let petsHtml = generateHTMLContent(petsData);
 let slides = randomizeHTML(petsHtml);
 
 let menuBtn = document.querySelector('.menu__button');
-let modals = document.querySelector('.modals')
+let modals = document.querySelector('.modals');
+let mobileLink = modals.querySelector('.list__item_link_active');
 
-slides.forEach(item => sliderContainer.insertAdjacentHTML('beforeend', item))
+slides.forEach(item => sliderContainer.insertAdjacentHTML('beforeend', item));
+
 
 let overlay = document.querySelector('.overlay');
 
@@ -169,6 +171,20 @@ document.addEventListener ('click', (event) => {
     }
    }
 
+   if (targetArray.includes('card__item')) {
+
+    let targetCardId = event.target.id;
+    let petsModalContent = addModalContent(petsData, targetCardId);
+    modals.insertAdjacentHTML('beforeend', petsModalContent)
+    let petsModal = modals.querySelector('.pets__modal');
+   menuBtn.classList.add('hidden');
+    body.classList.add('unscrollable');
+   petsModal.classList.add('modal__active');
+   overlay.classList.add('overlay__active');
+
+   }
+
+
    if (targetArray.includes('card__button')) {
     event.preventDefault();
     let targetCardId = event.target.parentNode.id;
@@ -196,6 +212,10 @@ document.addEventListener ('click', (event) => {
    if (targetArray.includes('overlay') && menuBtn.classList.contains('rotate')) {
      menu()
    }
+
+   if (event.target === mobileLink) {
+    menu()
+  }
 
   
   
