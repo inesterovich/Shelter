@@ -5,6 +5,9 @@ let paginationContainer = document.querySelector('.pagination__container');
 let petsHtml = generateHTMLContent(petsData);
 let cardsArry = generateRandomArray(petsHtml, 6).map(item => petsHtml[item]); 
 let cardsPerPage = getCardPerPage();
+let menuBtn = document.querySelectorAll('.menu__button');
+let modals = document.querySelector('.modals')
+let overlay = document.querySelector('.overlay');
 
 generatePagination(cardsArry);
 let cards = cardsArry.slice(0, cardsPerPage);
@@ -95,6 +98,24 @@ return resultArray;
 }
 
 
+function menu() {
+ 
+  
+  let modals = document.querySelector('.modals');
+  let mobileMenu = modals.querySelector('.mobile__menu');
+  let logo = document.querySelector('.logo');
+  
+  overlay.classList.toggle('overlay__active');
+  menuBtn.forEach( item => item.classList.toggle('rotate'))
+
+  mobileMenu.classList.toggle('mobile__menu_hidden');
+  logo.classList.toggle('logo__hidden');
+
+ 
+}
+
+
+
 function generateHTMLContent(data) {
 
   let result = []
@@ -125,6 +146,22 @@ let paginationNext = paginationContainer.querySelector('[data-next]');
 let paginationLast = paginationContainer.querySelector('[data-lastPage]');
 let cardsPerPage = getCardPerPage();
 let currentPageNumber = Number(paginationCurrent.innerText);
+
+let targetDOM = event.target.classList;
+  let targetArray = Array.from(targetDOM);
+  
+   if (targetArray.includes('menu__button')) {
+    menu();
+   }
+  
+   let mobileBtn = menuBtn[1]
+
+   if (targetArray.includes('overlay') && mobileBtn.classList.contains('rotate')) {
+    menu()
+  }
+
+ 
+ 
 
 let pages = getPages(cardsArry);
 

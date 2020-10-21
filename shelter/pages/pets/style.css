@@ -139,6 +139,7 @@ a.button:hover {
     justify-content: center;
     max-width: 18.4rem;
     white-space: nowrap;
+    transition: 1.25s;
 }
 
 
@@ -164,6 +165,12 @@ a.button:hover {
     margin-top: 1rem;
 }
 
+.header__background {
+    width: 100%;
+    position: fixed;
+    background-color: var(--color-light-xl);
+}
+
 
 
 .header__fixed {
@@ -171,7 +178,6 @@ a.button:hover {
     display: flex;
     padding: 3rem 0;
     justify-content: space-between;
-    position: fixed;
     width: 120rem;
 }
 
@@ -205,7 +211,7 @@ a.button:hover {
 .header .menu .list__item_link:hover {
     color: var(--color-dark-3xl);
 } 
-
+ 
 
 /* Main */
  main {
@@ -274,6 +280,16 @@ a.button:hover {
   
 }
 
+
+/* 
+
+2. Добавить скрипт к меню - проверить работоспособность. 
+3. Добавить модалку, привязать клик ко всей карточке. Это вообще через css организую - pointer-events none 
+и поправить скрипт цели.  
+
+
+
+*/
 .pagination__item_active {
     background-color: var(--color-primary);
     
@@ -382,6 +398,24 @@ a.button:hover {
 }
 
 
+.overlay {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;  
+    background: rgba(41, 41, 41, 0.6);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  
+.overlay__active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
 @media (max-width: 1279px) {
     .page__wrapper {
         max-width: 70.8rem;
@@ -435,7 +469,7 @@ a.button:hover {
         margin: 0 auto;
     }
 
-    .menu__button {
+   header .menu__button {
         position: fixed;
         top: 5.5rem;
         right: 3.5rem;
@@ -443,19 +477,46 @@ a.button:hover {
         background-repeat: no-repeat;
         width: 30px;
         height: 22px;
-       z-index: 10000;
 
     }
-/* Меню пока не доделано - нужно продмать фон для футера на 320 - сделать фиксированным всё, включая фон.
-Возможно контейнером фона получится - до враппера 
-*/
+
+    .mobile__menu .menu__button {
+        width: 3rem;
+        height: 2.2rem;
+        background-image: url('../../assets/images/Burger.svg');
+        background-repeat: no-repeat;
+        
+    }
+
+    .mobile__top {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 4.3rem;
+        width: 25.7rem;
+        align-items: center;
+    }
+
+    .mobile__menu .logo__title {
+        color: var(--color-primary);
+    }
+
+    .mobile__menu .logo__subtitle {
+        color: var(--color-light-xl);
+    }
 
     .header .menu .list {
         display: none;
     }
 
+    .logo__hidden {
+        opacity: 0;
+        transform: translate(50%);
+    }
+
     
     .mobile__menu {
+        flex-wrap: wrap;
         overflow: hidden;
         position: fixed;
         top: 0;
@@ -464,11 +525,12 @@ a.button:hover {
         height: 100vh;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         background-color: var(--color-dark-3xl);
         transition: 1.25s;
         z-index: 10;
-        
+       
+       
     }
 
     .mobile__menu_hidden {

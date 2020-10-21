@@ -146,7 +146,6 @@ return template;
 
 
 document.addEventListener ('click', (event) => {
-  console.log(event.target);
   let targetDOM = event.target.classList;
   let targetArray = Array.from(targetDOM);
   
