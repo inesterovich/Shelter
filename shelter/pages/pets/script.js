@@ -1,25 +1,5 @@
 'use strict'
 
-/*Делаю пагинацию: получить 48 элементов
-Алгоритм пагинации:
-
-1. Сколько у меня элементов в массиве?
-2. Какое сейчас разрешение?
-3. Сколько элементов выводится при этом разрешении?
-4. На какой странице я находился, когда был клик?
-5. На какую страницу надо перейти?
-
-Есть кнопки: 1 страница, предыдущая, текущая, следующая, последняя. 
-
-При загрузке странице кнопок у меня нет физически, значит, их надо создать.
- При загрузке и обновлении страницы должна прогружаться первая страница
-
-*/
-
-/* А нарезать надо не по такому-ли правилу? Номер текущей страницы * количество на страницу
-Закончить на предыдущем индексе + количество на страницу
-
-*/
 let cardsConainer = document.querySelector('.card__items');
 let paginationContainer = document.querySelector('.pagination__container');
 let petsHtml = generateHTMLContent(petsData);
@@ -29,14 +9,26 @@ let cardsPerPage = getCardPerPage();
 generatePagination(cardsArry);
 let cards = cardsArry.slice(0, cardsPerPage);
 
-console.log(cardsConainer);
+console.log(cardsArry.length)
 
 cards.forEach(item => cardsConainer.insertAdjacentHTML('beforeend', item))
-
+let setExample = generateSet(petsHtml);
 
 function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
+}
+
+function generateSet(data) {
+
+  let set = new Set();
+
+  while (set.size < data.length) {
+    let randomNumber = randomInteger(0, data.length - 1);
+    set.add(randomNumber);
+  }
+
+  return set;
 }
 
 function getCardPerPage() {
@@ -90,14 +82,14 @@ paginationContainer.insertAdjacentHTML('beforeend', template);
 function generateRandomArray(data, repeatTimes) {
 
   let resultArray = [];
-for (let i = 0 ; i< data.length * repeatTimes; i++) {
 
-  let item = randomInteger(0, data.length - 1);
-  resultArray.push(item);
+  for (let i = 0; i < repeatTimes; i++) {
+    let set = generateSet(data);
+    let setArray = Array.from(set);
+    resultArray.push(setArray);
+  }
 
-}
-
-// Пока сойдет. Делаем другую часть этого же задания
+  resultArray = resultArray.flat();
 
 return resultArray;
 }
@@ -124,18 +116,6 @@ return result;
 }
 
 
-/*  Алгоритм генерации:
-
-1. Взять пустой сет, 
-2. Заполнить его случайными числами от 0 до 7
-3. Добавить в массив.
-4. Очистить Set
-5. Повторить нужное число раз
-
-Делать двумя while? 
-
-*/
-
 document.addEventListener('click', (event) => {
 
 let paginationFirstPage = paginationContainer.querySelector('[data-firstPage]');
@@ -147,8 +127,6 @@ let cardsPerPage = getCardPerPage();
 let currentPageNumber = Number(paginationCurrent.innerText);
 
 let pages = getPages(cardsArry);
-
-console.log(event.target);
 
 if (event.target === paginationNext ) {
 
