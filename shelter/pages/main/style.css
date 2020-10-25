@@ -362,7 +362,7 @@ a.button:hover {
 
  .pets .card__items {
     margin: 6rem 5.3rem ;
-    justify-content: space-between;
+    column-gap: 9rem;
     display: flex;
     width: 100%;
     margin-bottom: 5.6rem;
@@ -372,7 +372,6 @@ a.button:hover {
 .pets .card__item {
     width: 27rem;
     height: 43.5rem;
-    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -380,8 +379,9 @@ a.button:hover {
     border-top-left-radius: 9%;
     border-top-right-radius: 9%;
     padding-bottom: 3rem;
-    
+
 }
+
 
 .pets .card__item:hover > .card__button {
     background-color: var(--color-primary);
@@ -395,10 +395,20 @@ a.button:hover {
     pointer-events: none;
 }
 
+@keyframes scale {
+    0% {
+        transform: scale(0.5);
+    }
 
+    100% {
+        transform: scale(1);
+    }
+}
 
  .pets .card__item_visible {
+    animation: scale 1s linear 1;
     display: flex;
+    
 } 
 
 .pets .card__item:hover {
@@ -802,8 +812,6 @@ a.button:hover {
     }
 
   
-
-
     .pets .card__item:nth-child(3) {
         display: none;
     }

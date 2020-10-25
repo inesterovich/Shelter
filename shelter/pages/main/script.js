@@ -161,9 +161,11 @@ document.addEventListener ('click', (event) => {
     slides.forEach(item => sliderContainer.insertAdjacentHTML('beforeend', item))
     for (let i = 0; i < slidesCollection.length; i++) {
         if (slidesCollection[i].classList.contains('card__item_visible')) {
-         
-          slidesCollection[i].remove();
-          i--;
+    // Set Timeout + column-gap
+        
+              slidesCollection[i].remove();
+              i--;
+           
         } else {
 
           slidesCollection[i].classList.add('card__item_visible');
