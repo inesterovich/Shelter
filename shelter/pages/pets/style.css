@@ -207,9 +207,16 @@ a.button:hover {
     border-bottom: 0.3rem solid var(--color-primary);
 }
 
+.list__item_link_disabled {
+    color: var(--color-dark-s);
+    cursor: default;
+}
 
-.header .menu .list__item_link:hover {
+
+.header .menu .list__item_link:not(.list__item_link_disabled):hover {
     color: var(--color-dark-3xl);
+    padding-bottom: 0.3rem;
+    border-bottom: 0.3rem solid var(--color-primary);
 } 
  
 
@@ -394,18 +401,17 @@ a.button:hover {
    
 }
 
-.footer .content__wrapper:first-child .content__item::before {
+.footer .content__wrapper:first-child .content__item img {
     position: absolute;
-    content: "";
+   
     width: 4rem;
     height: 2.6rem;
-    background-image: url('../../assets/images/mail.svg');
     top: 0;
     left: 0;
 }
 
-.footer .content__wrapper:first-child .content__item:last-child::before {
-    background-image: url("../../assets/images/phone.svg");
+.footer .content__wrapper:first-child .content__item:last-child img {
+    
     height: 32px;
 }
 
@@ -414,12 +420,11 @@ a.button:hover {
     position: relative;
 }
 
-.footer .content__wrapper:nth-child(2) .content__item::before {
-    content: "";
+.footer .content__wrapper:nth-child(2) .content__item img {
+   
     position: absolute;
     width: 2.2rem;
     height: 3.2rem;
-    background-image: url("../../assets/images/pin.svg");
     top: 0;
     left: 0;
 }
@@ -517,6 +522,12 @@ a.button:hover {
     border-radius: 100px;
     background: 50% 50% no-repeat url('../../assets/images/Close.svg') var(--color-light-s);
     z-index: 15000;
+    transition: 0.5s;
+}
+
+.close__modal:hover {
+    background-color: var(--color-primary);
+    border: 2px solid #F1CDB3;
 }
 
 
@@ -711,12 +722,15 @@ a.button:hover {
     border-bottom: 0.3rem solid var(--color-primary);
 }
 
-.mobile__menu .list__item_link_disabled {
-    color: var(--color-dark-s);
+
+.mobile__menu .list__item_link:not(.list__item_link_disabled):hover {
+    color: var(--color-light-s);
+    padding-bottom: 0.3rem;
+    border-bottom: 0.3rem solid var(--color-primary);
 }
 
-.mobile__menu .list__item_link:hover {
-    color: var(--color-light-s);
+.mobile__menu .list__item_link_disabled {
+    color: var(--color-dark-s)
 }
 
     .rotate {
@@ -785,5 +799,8 @@ a.button:hover {
       .pets__modal p {
           text-align: justify;
       }
+
+
+ 
 
 }

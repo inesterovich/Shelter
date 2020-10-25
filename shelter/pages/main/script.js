@@ -97,6 +97,7 @@ function menu() {
   
   overlay.classList.toggle('overlay__active');
   menuBtn.classList.toggle('rotate');
+  body.classList.toggle('unscrollable');
   mobileMenu.classList.toggle('mobile__menu_hidden');
   logo.classList.toggle('logo__fixed');
 

@@ -111,7 +111,7 @@ function menu() {
   
   overlay.classList.toggle('overlay__active');
   menuBtn.forEach( item => item.classList.toggle('rotate'))
-
+  body.classList.toggle('unscrollable');
   mobileMenu.classList.toggle('mobile__menu_hidden');
   logo.classList.toggle('logo__hidden');
 
@@ -127,7 +127,7 @@ function addModalContent(dataArray, id) {
       <div class="img__wrapper">
 
           <div class="img">
-              <img src="../../assets/images/pets-${dataArray[id].name}.png" alt="${dataArray[id].type} ${dataArray[id].name}">
+              <img src="../../assets/images/pets-${String(dataArray[id].name).toLowerCase()}.png" alt="${dataArray[id].type} ${dataArray[id].name}">
           </div>
    </div>
 

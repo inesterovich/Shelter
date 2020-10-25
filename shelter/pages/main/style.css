@@ -459,7 +459,7 @@ a.button:hover {
 }
 
 .icon__containter {
-    margin: 0 6rem 5.5rem 6rem;
+    margin: 0 5rem 5.5rem 5.5rem;
     text-align: center;
 }
 
@@ -597,33 +597,24 @@ a.button:hover {
     max-width: 30.2rem;
    
 }
-
-.footer .content__wrapper:first-child .content__item::before {
-    position: absolute;
-    content: "";
+.footer .content__wrapper:first-child .content__item img {
+    position:  absolute;
     width: 4rem;
     height: 2.6rem;
-    background-image: url('../../assets/images/mail.svg');
     top: 0;
     left: 0;
 }
 
-.footer .content__wrapper:first-child .content__item:last-child::before {
-    background-image: url("../../assets/images/phone.svg");
-    height: 32px;
-}
 
 .footer .content__wrapper:nth-child(2) .content__item {
     padding-left: 4.2rem;
     position: relative;
 }
 
-.footer .content__wrapper:nth-child(2) .content__item::before {
-    content: "";
+.footer .content__wrapper:nth-child(2) .content__item img {
     position: absolute;
     width: 2.2rem;
     height: 3.2rem;
-    background-image: url("../../assets/images/pin.svg");
     top: 0;
     left: 0;
 }
@@ -727,7 +718,14 @@ a.button:hover {
     border-radius: 100px;
     background: 50% 50% no-repeat url('../../assets/images/Close.svg') var(--color-light-s);
     z-index: 15000;
+    transition: 0.5s;
 }
+
+.close__modal:hover {
+    background-color: var(--color-primary);
+    border: 2px solid #F1CDB3;
+}
+
 
 .overlay {
 
@@ -754,10 +752,6 @@ a.button:hover {
     overflow-y: hidden;
 }
 
-/* Прописать все ховеры для модалки и заадаптивить его
-    Потом делаю логику
-    Вспомнить про затемнение вокруг. Может, перед модалкой пустой див с затемнением?
-*/
 
 @media (max-width: 1279px) {
     .page__wrapper {
@@ -787,6 +781,11 @@ a.button:hover {
     .promo .img__wrapper {
         max-width: 56.9rem;
         align-self: flex-end;
+    }
+
+    .promo .text__button {
+        margin: 0 auto ;
+        margin-top: 4.2rem;
     }
 
     .about .page__wrapper {
@@ -961,10 +960,14 @@ a.button:hover {
 
 .mobile__menu .list__item_link_disabled {
     color: var(--color-dark-s);
+    cursor: default;
 }
 
-.mobile__menu .list__item_link:hover {
+.mobile__menu .list__item_link:not(.list__item_link_disabled):hover {
     color: var(--color-light-s);
+    padding-bottom: 0.3rem;
+    border-bottom: 0.3rem solid var(--color-primary);
+   
 }
 
 
@@ -983,10 +986,7 @@ a.button:hover {
         margin-bottom: 10.5rem;
     }
 
-    .promo .text__button {
-        margin: 0 auto;
-        margin-top: 4.2rem;
-    }
+
 
     .promo .img__wrapper {
         max-width: 26rem;
@@ -1014,6 +1014,10 @@ a.button:hover {
     .about .text__wrapper {
         margin: 0 auto;
         max-width: 27rem;
+    }
+
+    .about p {
+        text-align: justify;
     }
 
 
@@ -1085,7 +1089,7 @@ a.button:hover {
     }
 
     .donation .text__wrapper {
-        text-align: center;
+        align-content: stretch;
         flex-basis: 28.1rem;
        
     }
@@ -1102,6 +1106,10 @@ a.button:hover {
         margin-right: 1rem;
     }
 
+    .donation .page__wrapper p.text__item {
+        text-align: justify;
+    }
+
     .donation .card__number {
         font-size: 1.5rem;
        
@@ -1112,6 +1120,7 @@ a.button:hover {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
 
     .donation .img__wrapper {
         margin-top: 4.2rem;
