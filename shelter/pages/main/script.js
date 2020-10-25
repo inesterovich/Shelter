@@ -38,7 +38,7 @@ function generateHTMLContent(data) {
   for (let i = 0; i < data.length; i++) {
     let template = `<div id="${i}" class="card__item">
     <div class="img__wrapper">
-        <img src="${data[i].img}" alt="${data[i].type} ${data[i].name}" class="card__img">
+        <img src="${data[i].img}" alt="${data[i].type} ${String(data[i].name).toLowerCase()}" class="card__img">
     </div>
     <h4 class="card__title">${data[i].name}</h4>
     <a href="#" class="button card__button">Learn more</a>    
