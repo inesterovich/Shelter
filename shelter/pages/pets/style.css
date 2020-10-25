@@ -601,6 +601,7 @@ a.button:hover {
 
     .pets__modal img {
         width: 35rem;
+        margin-right: 1.1rem;
     }
 
     .pets__modal .text__wrapper {

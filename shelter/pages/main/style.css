@@ -816,10 +816,15 @@ a.button:hover {
         display: none;
     }
 
+
     .pets .card__items {
         margin-left: 1.2rem;
         margin-right: 1.2rem;
         max-width: 58rem;
+    }
+
+    .pets .card__item {
+        column-gap: 4rem;
     }
 
     .help {
@@ -876,6 +881,7 @@ a.button:hover {
 
     .pets__modal img {
         width: 35rem;
+        margin-right: 1.1rem;
     }
 
     .pets__modal .text__wrapper {
