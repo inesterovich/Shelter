@@ -208,10 +208,13 @@ a.button:hover {
 
 .header .menu .list__item_link_disabled {
     color: var(--color-dark-s);
+    cursor: default;
 }
 
-.header .menu .list__item_link:hover {
+.list__item_link:not(.list__item_link_disabled):hover {
     color: var(--color-light-s);
+    padding-bottom: 0.3rem;
+    border-bottom: 0.3rem solid var(--color-primary);
 }
 
 .promo .page__wrapper {
