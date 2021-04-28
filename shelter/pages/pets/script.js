@@ -16,7 +16,6 @@ let mobileLink = modals.querySelector('.list__item_link_active');
 generatePagination(cardsArry);
 let cards = cardsArry.slice(0, cardsPerPage);
 
-console.log(cardsArry.length)
 
 cards.forEach(item => cardsConainer.insertAdjacentHTML('beforeend', item))
 let setExample = generateSet(petsHtml);
@@ -26,11 +25,11 @@ function randomInteger(min, max) {
   return Math.floor(rand);
 }
 
-function generateSet(data) {
+function generateSet(data, size) {
 
   let set = new Set();
 
-  while (set.size < data.length) {
+  while (set.size < size) {
     let randomNumber = randomInteger(0, data.length - 1);
     set.add(randomNumber);
   }
@@ -90,13 +89,13 @@ function generateRandomArray(data, repeatTimes) {
 
   let resultArray = [];
 
-  for (let i = 0; i < repeatTimes; i++) {
-    let set = generateSet(data);
+  while (resultArray.length <= 48) {
+    let set = generateSet(data, getCardPerPage());
     let setArray = Array.from(set);
     resultArray.push(setArray);
   }
-
   resultArray = resultArray.flat();
+  resultArray = resultArray.slice(0, 48);
 
 return resultArray;
 }
@@ -184,7 +183,6 @@ return result;
 
 document.addEventListener('click', (event) => {
 
-  console.log(event.target)
 let paginationFirstPage = paginationContainer.querySelector('[data-firstPage]');
 let paginationPrevious = paginationContainer.querySelector('[data-previous]');
 let paginationCurrent = paginationContainer.querySelector('[data-current]');

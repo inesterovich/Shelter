@@ -220,7 +220,6 @@ a.button:hover {
 } 
  
 
-/* Main */
  main {
     padding-top: 12rem;
 }
@@ -319,15 +318,7 @@ a.button:hover {
 }
 
 
-/* 
 
-2. Добавить скрипт к меню - проверить работоспособность. 
-3. Добавить модалку, привязать клик ко всей карточке. Это вообще через css организую - pointer-events none 
-и поправить скрипт цели.  
-
-
-
-*/
 .pagination__item_active {
     background-color: var(--color-primary);
     
