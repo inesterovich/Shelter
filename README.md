@@ -2,7 +2,7 @@
 
 1. Task: https://github.com/rolling-scopes-school/tasks/blob/master/tasks/markups/level-2/shelter/shelter-cross-check-ru.md
 2.  Screenshot:
-3. Deploy:  https://rolling-scopes-school.github.io/inesterovich-JS2020Q3/shelter/pages/main/
+3. Deploy:  https://shelter.pet-projects.ru/pages/main/index.html
 4. Done 25.10.2020 / Deadline : 26.10.2020
 5. Score:  100/100
 
